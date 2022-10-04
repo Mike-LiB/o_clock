@@ -1,0 +1,2126 @@
+/* @author Luis Miguel Liborio */
+
+/* 
+Se le quita el margen y el relleno a todos los elementos haciendo 
+uso del asterisco y se agrega una tipografía general.
+ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+    font-size: 100%;
+}
+
+html {
+    transition: .2s ease;
+}
+
+a {
+    text-decoration: none;
+}
+
+input, select, button {
+    font-size: 1em;
+}
+
+body {
+    padding: 0;
+    background: #FFF;
+}
+
+section {
+    margin-top: 5.2em;
+    padding: 1%;
+}
+
+/* 
+Este código se ha utilizado para darle estilo al cuerpo del login
+se le agrega un color de fondo y todo se posiciona en el centro.
+ */
+#lBody {
+    display: flex;
+    flex-direction: column;
+    height: 33.3em;
+    justify-content: center;
+    background: #87BBA2;
+    color: #FFF;
+}
+
+#lBody #logo {
+    margin: 0 auto;
+    width: 25%;
+    /* border: 1px solid #000; */
+}
+
+#lBody #logo img {
+    width: 100%;
+}
+
+/* 
+Las propiedades para el formulario de ingreso solo son de posición y tamaño
+se le ha agregado un relleno de 15 px para que los elementos esten separados de los
+límites del formulario y este no ocupa más del 30 % del ancho de la pantalla.
+ */
+#lBody form {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 0 auto;
+    padding: 1%;
+    width: 30%;
+    align-items: center;
+    justify-content: center;
+}
+
+/** ---------------------------------------------Estilo de los radio---------------------------------------------- */
+
+/* 
+El contendor de los radio utiliza utiliza flex para que todos los radio estén
+uno a la pár del otro y se ha centrado el contenido de este, además de quitarle el margen
+y el relleno.
+*/
+#lBody form #userType {
+    display: flex;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 
+Para cada opción se ha agregado un margen del 1 %, de manera que no estén tan juntas una de la otra
+ */
+#lBody form #userType .user_optBox {
+    display: block;
+    position: relative;
+    margin: 1%;
+}
+
+/* 
+El input se ha hecho invisible ya que no se necesita
+*/
+#lBody form #userType .user_optBox input {
+    display: none;
+    position: relative;
+}
+
+/* 
+Al label se le he agregado una transición de 2 segundos, la cual solo consiste en un cambio
+de color y se le ha agregado que cuando el cursor esté encima se coloque en modo pointer.
+ */
+#lBody form #userType .user_optBox label {
+    border: none;
+    cursor: pointer;
+    transition: ease .2s;
+}
+
+/* Animación para el label */
+#lBody form #userType .user_optBox input:checked~label {
+    color: #3B6064;
+}
+
+/* 
+A cada span se le ha agregaddo la posición absoluta para mandarlo a la izquierda y hasta abajo del contenedor,
+el contenido se ha dejado vacío y tienen una transición para expandirse y cambiar de colory con una altura
+de dos pixeles.
+*/
+#lBody form #userType .user_optBox span {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    background: #FFF;
+    transition: .3s;
+}
+
+#lBody form #userType .user_optBox label:hover~span {
+    width: 100%;
+}
+
+#lBody form #userType .user_optBox input:checked~span {
+    width: 100%;
+    background: #3B6064;
+}
+
+
+/* 
+Se han agrupado los contenedores de los input y los combo-boxes ya que se
+repiten las propiedades para estos dos elementos.
+ */
+#lBody form .inputBox {
+    display: flex;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* 
+El estilo de los input es similar al de el combo-box
+ */
+#lBody form .inputBox input {
+    position: relative;
+    margin: 0;
+    padding: 1% 5%;
+    width: 100%;
+    background: none;
+    outline: none;
+    border: none;
+    border: 2px solid #FFF;
+    border-radius: 1em;
+    color: #FFF;
+    transition: .2s;
+}
+
+#lBody form .inputBox label {
+    position: absolute;
+    display: block;
+    margin: 0;
+    padding: 0;
+    left: 5%;
+    bottom: 12%;
+    cursor: text;
+    transition: .2s;
+}
+
+/* 
+La transición de todos estos elementos está agrupada porque se repite
+y es un simple cambio de color.
+ */
+#lBody form .inputBox input:hover,
+#lBody form .inputBox input:focus,
+#lBody form .inputBox input:valid {
+    border-color: #55828B;
+}
+
+/* 
+Lo mismo ocurre con los label.
+*/
+#lBody form .inputBox input:focus~label,
+#lBody form .inputBox input:valid~label {
+    color: #55828B;
+    background-color: #87BBA2;
+    transform: translate(4px, -26px);
+    font-size: 12pt;
+}
+
+/* 
+Eliminamos la decoración del texto para el link, se le agrega un tamaño más
+pequeño y se cambia de color.
+*/
+#lBody form>a {
+    position: absolute;
+    bottom: 26%;
+    left: 50%;
+    text-decoration: none;
+    font-size: 11pt;
+    right: 20px;
+    color: #55828B;
+    transition: .2s;
+}
+
+/* 
+A la hora de colocar el cursor encima del link, este se torna a un color más oscuro.
+*/
+#lBody form>a:hover {
+    color: #3B6064;
+}
+
+/* 
+El estilo del el botón para ingresar consiste en eliminarle el fondo
+agregarle un relleno de 5 px y un tamaño del 5 %.
+*/
+#lBody form>input {
+    position: relative;
+    margin: 0;
+    padding: 1%;
+    width: 45%;
+    background: none;
+    color: #FFF;
+    border: 2px solid #FFF;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+/* 
+La animación del botón es un cambio de color del borde y el texto.
+*/
+#lBody form>input:hover {
+    border-color: #55828B;
+    color: #55828B;
+}
+
+/** -------------------------------------Estilo del home----------------------  */
+.banner {
+    display: flex;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 1000em;
+    height: 35em;
+    justify-content: center;
+    align-items: center;
+    background: center fixed no-repeat url('../assets/banner.jpg');
+    background-size: cover;
+    z-index: 2;
+}
+
+.banner #banner_content {
+    display: flex;
+    position: fixed;
+    padding: 1em;
+    width: 100%;
+    top: 0;
+    align-items: center;
+    z-index: 2;
+}
+
+.banner .desc {
+    margin: 0;
+    width: 70%;
+    bottom: 7em;
+    text-align: center;
+}
+
+.user {
+    display: flex;
+    position: relative;
+    padding: 0;
+    width: fit-content;
+    align-items: center;
+    text-align: left;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.user .profile {
+    display: flex;
+    position: relative;
+    margin-right: 10px;
+    width: 2.5em;
+    height: 2.5em;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #FFF;
+    border-radius: 30em;
+    overflow: hidden;
+}
+
+.user .profile .profile_img {
+    font-size: 1.5em;
+}
+
+.user .username {
+    display: block;
+    position: relative;
+    width: fit-content;
+    color: #55828B;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.user .username ul {
+    display: flex;
+    position: absolute;
+    width: 7.5em;
+    height: 0;
+    background: none;
+    border: 1px solid #FFF;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: all ease .2s;
+}
+
+.user .username a {
+    color: #FFF;
+    transition: .2s;
+}
+
+.user .username a:hover {
+    color: #3B6064;
+}
+
+.user:hover .username {
+    color: #364958;
+}
+
+.user:hover ul {
+    height: 1.6em;
+    opacity: 1;
+}
+
+.content_bg {
+    position: fixed;
+    display: block;
+    width: 100%;
+    height: 4.2em;
+    left: 0;
+    top: 0;
+    background: #87BBA2;
+    box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, .2);
+    z-index: 1;
+}
+
+#home {
+    margin: 0;
+}
+
+#home .facts {
+    box-shadow: 0 2px 5px 0px rgba(0, 0, 0, .2);
+}
+
+#home hr {
+    margin: 1% auto;
+    width: 80%;
+}
+
+#home article {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 20em;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: justify;
+    color: #55828B;
+}
+
+#home article .icon {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    font-size: 4em;
+}
+
+#home article .divider {
+    height: 70%;
+    border: 1px solid #55828B;
+}
+
+#home article .desc {
+    width: 60%;
+}
+
+#home article .desc h1 {
+    margin-bottom: 1%;
+    font-size: 1.5em;
+}
+
+#home article .desc a {
+    font-weight: 600;
+    color: cornflowerblue;
+    transition: .2s;
+}
+
+#home article .desc a:hover {
+    text-decoration: underline;
+}
+
+#home .help-questions .desc {
+    width: 50%;
+}
+
+#home article .formOpinionContainer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 1%;
+    width: fit-content;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#home article .formOpinionContainer form {
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+    height: 100%;
+    justify-content: center;
+}
+
+#home article .formOpinionContainer .inputBox {
+    position: relative;
+    width: 100%;
+}
+
+#home article .formOpinionContainer .inputBox input {
+    padding: .5% 2%;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid lightgray;
+    font-size: 1em;
+    outline: none;
+    transition: .15s;
+}
+
+#home article .formOpinionContainer .inputBox label {
+    position: absolute;
+    left: 2%;
+    bottom: 15%;
+    font-size: 1em;
+    color: lightgray;
+    cursor: text;
+    transition: .2s;
+}
+
+#home article .formOpinionContainer .inputBox input:focus,
+#home article .formOpinionContainer .inputBox input:valid {
+    border-color: #55828B;
+}
+
+#home article .formOpinionContainer .inputBox input:focus~label,
+#home article .formOpinionContainer .inputBox input:valid~label {
+    color: #55828B;
+    translate: -5px -20px;
+    font-size: 11pt;
+}
+
+#home article .formOpinionContainer textarea {
+    padding: 1%;
+    font: 1em sans-serif;
+    border: 1px solid lightgray;
+    border-radius: .2em;
+    outline: none;
+    transition: .2s;
+}
+
+#home article .formOpinionContainer textarea:focus,
+#home article .formOpinionContainer textarea:valid {
+    border-color: #55828B;
+}
+
+#home article .formOpinionContainer .btns {
+    display: flex;
+    position: relative;
+    justify-content: end;
+}
+
+#home article .formOpinionContainer .btns button {
+    display: flex;
+    padding: 0 5%;
+    margin: 1%;
+    color: #55828B;
+    border: 1px solid #55828B;
+    border-radius: 1em;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    cursor: pointer;
+    transition: .2s;
+}
+
+#home article .formOpinionContainer .btns button[type="submit"] {
+    background: #87BBA2;
+    border: none;
+    color: #FFF;
+    width: 2em;
+    height: 2em;
+}
+
+#home article .formOpinionContainer .btns button:hover {
+    background: #55828B;
+    color: #FFF;
+}
+
+#home article .formOpinionContainer .btns button[type="submit"]:hover {
+    background: #72a089;
+}
+
+/** -------------------------------------Estilo general------------------------ */
+header {
+    display: flex;
+    position: fixed;
+    margin: 0 auto;
+    padding: 1%;
+    width: 100%;
+    height: 5.4em;
+    top: 0;
+    align-items: center;
+    background: #87BBA2;
+    color: #FFF;
+    box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, .2);
+    z-index: 3;
+}
+
+/** ---------------------------------------------Barra de navegación---------------------- */
+header .logo {
+    position: absolute;
+    display: flex;
+    top: .4em;
+    width: 6em;
+    height: 4.5em;
+    justify-content: center;
+    align-items: center;
+}
+
+header .logo img {
+    width: 100%;
+}
+
+header nav {
+    display: flex;
+    position: relative;
+    margin: 0 auto;
+    width: 55%;
+    align-items: center;
+    justify-content: space-evenly;
+    height: fit-content;
+}
+
+header nav .link {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin: .5%;
+}
+
+header nav .link a {
+    color: #FFF;
+    text-decoration: none;
+    transition: .2s;
+}
+
+header nav .link span {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    background: #FFF;
+    transition: .3s;
+}
+
+header nav #index {
+    padding: 4px .5em;
+    border: none;
+    border-radius: 20em;
+    overflow: hidden;
+}
+
+header nav #index a {
+    z-index: 2;
+}
+
+header nav #index a:hover {
+    color: #FFF;
+}
+
+header nav #index span {
+    width: 100%;
+    height: 100%;
+    background: #3B6064;
+    z-index: 1;
+}
+
+header nav .link a:hover {
+    color: #3B6064;
+}
+
+header nav .link a:hover~span {
+    width: 100%;
+    background: #3B6064;
+}
+
+/** ----------------------------------Diseño del listado de estudiantes para la asistencia------------------------------ */
+.students {
+    display: flex;
+    position: relative;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.students .stdntList {
+    display: block;
+    position: relative;
+    width: 64%;
+    height: 28em;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, .2);
+    box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, .2);
+}
+
+.users {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.users .usersList {
+    display: block;
+    position: relative;
+    width: 99%;
+    height: 28em;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, .2);
+    box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, .2);
+}
+
+.usersList .list {
+    width: 100%;
+    height: 100%;
+}
+
+.students .stdntList table th,
+.students .stdntList table td,
+.usersList table th,
+.usersList table td {
+    padding: 0 1%;
+}
+
+.students .stdntList .titles,
+.usersList .titles {
+    display: block;
+    width: 100%;
+}
+
+.students .stdntList .titles table,
+.usersList .titles table {
+    width: 100%;
+    background: none;
+    border: none;
+}
+
+.students .stdntList .titles table th,
+.usersList .titles table th {
+    background: #55828B;
+    color: #FFF;
+}
+
+.students .stdntList .list,
+.usersList .list {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.students .stdntList .list table,
+.usersList .list table {
+    margin-bottom: 1.5em;
+    width: 100%;
+    border: none;
+    background: none;
+}
+
+.usersList .list table {
+    margin-bottom: 0;
+}
+
+.students .stdntList .list table td,
+.usersList .list table td {
+    background: #eeeeee;
+    border: none;
+}
+
+.usersList .titles table .names {
+    width: 24.3%;
+}
+
+.usersList .titles table .lastNames {
+    width: 25.05%;
+}
+
+.usersList .titles table .username {
+    width: 25.05%;
+}
+
+.usersList .list table td {
+    width: 6%;
+}
+
+#sectInfoBG #sectInfoContainer .btns button[id="addStudent"],
+.usersList button,
+.sections>button {
+    position: absolute;
+    width: 2.5em;
+    height: 2.5em;
+    right: 1%;
+    bottom: 2%;
+    background: #FFF;
+    color: #87BBA2;
+    border: 1px solid #87BBA2;
+    border-radius: 10em;
+    cursor: pointer;
+    transition: .2s;
+    z-index: 2;
+}
+
+#sectInfoBG #sectInfoContainer .btns button[id="addStudent"] {
+    background: none;
+    border: 1px solid #FFF;
+    color: #FFF;
+    bottom: auto;
+}
+
+.usersList button:hover,
+.sections>button:hover {
+    background: #87BBA2;
+    color: #FFF;
+}
+
+#sectInfoBG #sectInfoContainer .btns button[id="addStudent"]:hover {
+    background: #FFF;
+    color: #C9E4CA;
+}
+
+.students .stdntList .nie {
+    width: 12%;
+}
+
+.students .stdntList .lastNames {
+    width: 42%;
+}
+
+.students .stdntList .list .nie {
+    width: 12.3%;
+}
+
+.students .stdntList .list .lastNames {
+    width: 42.8%;
+}
+
+.students .tools {
+    display: block;
+    position: relative;
+    width: 35%;
+    height: 28em;
+    border: 1px solid rgba(0, 0, 0, .2);
+    box-shadow: -1px 2px 5px 0px rgba(0, 0, 0, .2);
+}
+
+.students .tools .sectList {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 12em;
+    border-bottom: 2px solid rgba(0, 0, 0, .2);
+    overflow: hidden;
+}
+
+.students .tools .sectList .options {
+    display: flex;
+    padding: 1%;
+    background: #55828B;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, .2);
+
+}
+
+.students .tools .sectList .options h2 {
+    color: #FFF;
+    font-size: 16pt;
+}
+
+.students .tools .sectList .options a {
+    position: relative;
+    margin: 0.5%;
+    padding: 0 3%;
+    width: 30%;
+    right: 0;
+    top: 1.5%;
+    background: none;
+    color: #FFF;
+    border: 1px solid #FFF;
+    border-radius: 20em;
+    text-align: center;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.students .tools .sectList .options a:hover {
+    background: #FFF;
+    color: #55828B;
+}
+
+.students .tools .sectList #list {
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+    padding-bottom: 3.5em;
+    height: 100%;
+    overflow: auto;
+}
+
+.students .tools .sectList .inputBox {
+    display: flex;
+    position: relative;
+    margin: 0.5%;
+    height: fit-content;
+}
+
+.students .tools .sectList .inputBox input {
+    display: none;
+}
+
+
+.students .tools .sectList .inputBox label {
+    display: flex;
+    position: relative;
+    padding: 1.5% 3%;
+    width: 55%;
+    background: #C9E4CA;
+    color: #FFF;
+    border: none;
+    border-radius: 20em;
+    align-items: center;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.students .tools .sectList .inputBox span {
+    display: flex;
+    margin-right: 4%;
+    padding: 5%;
+    width: 1em;
+    height: 1em;
+    color: #C9E4CA;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #FFF;
+    border-radius: 3px;
+    transition: .2s;
+}
+
+.students .tools .sectList .inputBox label:hover {
+    background: #87BBA2;
+}
+
+.students .tools .sectList .inputBox label:hover span {
+    color: rgba(255, 255, 255, .5);
+}
+
+.students .tools .sectList .inputBox input:checked~label {
+    background: #87BBA2;
+}
+
+.students .tools .sectList .inputBox input:checked~label span {
+    background: #FFF;
+    color: #87BBA2;
+}
+
+.students .tools .sectList .add:hover {
+    background: #55828B;
+    color: #FFF;
+}
+
+.students .tools .graficsContainer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    height: 16em;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.students .tools .graficsContainer #grafics {
+    display: flex;
+    width: 35em;
+    justify-content: space-between;
+    translate: 30%;
+    transition: all .3s;
+}
+
+.students .tools .graficsContainer #grafics .grafica {
+    width: 14.5em;
+    height: 14.5em;
+}
+
+.students .tools .graficsContainer .switch {
+    display: flex;
+    margin-top: 1.5%;
+    width: 10%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.students .tools .graficsContainer .switch button {
+    width: .5em;
+    height: .5em;
+    background: rgba(0, 0, 0, .2);
+    border: 1px solid #FFF;
+    border-radius: 2em;
+    cursor: pointer;
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) .3s;
+}
+
+/** ----------------------------------Diseño del perfil------------------------------*/
+.control {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 38.2em;
+    justify-content: space-between;
+    align-items: center;
+    color: #000;
+}
+
+.control .perfilContainer {
+    height: 100%;
+    width: 54%;
+}
+
+.control .perfilContainer h3 {
+    font-size: 16pt;
+}
+
+.control .perfilContainer .perfil {
+    display: flex;
+    padding: 3%;
+    width: 100%;
+    background: #eeeeee;
+    color: #000;
+    border: 1px solid lightgray;
+    border-radius: .2em;
+    box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, .1);
+}
+
+.control .perfilContainer .perfil .foto {
+    display: flex;
+    margin-right: 2%;
+    width: 3.5cm;
+    height: 3.5cm;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #000;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.control .perfilContainer .perfil .foto img {
+    width: 100%;
+    height: 100%;
+}
+
+.control .perfilContainer .perfil .data {
+    position: relative;
+    width: 75%;
+}
+
+.control .perfilContainer .perfil .data .inputBox {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.control .perfilContainer .perfil .data .inputBox input {
+    padding-top: 3%;
+    width: 100%;
+    background: none;
+    color: #000;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #7f7f7f;
+}
+
+.control .perfilContainer .perfil .data .inputBox label {
+    position: absolute;
+    left: 0;
+    color: #7f7f7f;
+    font-size: 11pt;
+    transform: translate(2px, -9.5px);
+}
+
+.control aside {
+    display: block;
+    position: relative;
+    width: 45%;
+    height: 100%;
+    color: #000;
+    justify-content: start;
+    align-items: center;
+    border: 1px solid lightgray;
+    border-radius: .2em;
+    box-shadow: -2px 2px 5px 0 rgba(0, 0, 0, .1);
+    overflow: hidden;
+}
+
+.control aside .scanBox {
+    display: flex;
+    position: relative;
+    margin: 0;
+    height: 15em;
+    justify-content: center;
+    align-items: center;
+    background: #eeeeee;
+}
+
+.control aside .scanBox .cameraBox {
+    display: flex;
+    position: relative;
+    width: 14em;
+    height: 14em;
+    background: #000;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    border: 2px solid #FFF;
+    border-radius: .5em;
+    overflow: hidden;
+}
+
+.control aside .scanBox .cameraBox video {
+    width: 23em;
+}
+
+.control aside .cameraBox .laser {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 2px;
+    border: 1px solid rgba(255, 0, 0, .7);
+    box-shadow: 0 0 5px 5px rgba(255, 0, 0, .5);
+    animation: scan 1s ease .1s alternate infinite;
+    z-index: 5;
+}
+
+.control aside hr {
+    border: 1px solid #FFF;
+    background: #FFF;
+    height: 5px;
+}
+
+.control aside .tableBox {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 0;
+    padding: .5%;
+    width: 100%;
+    height: 100%;
+    justify-content: start;
+    background: #eeeeee;
+    overflow: auto;
+}
+
+.control aside .tableBox table {
+    margin: 2% auto;
+    padding: 0;
+    width: 100%;
+    text-align-last: left;
+    background: #000;
+}
+
+.control aside .tableBox table th,
+.control aside .tableBox table td {
+    background: #FFF;
+}
+
+.control aside .tableBox table td {
+    padding: 0.5%;
+}
+
+.control aside .tableBox table .names {
+    width: 60%;
+}
+
+/** ---------------------------------------------Estilo para las secciones---------------------------------------------- */
+.sections {
+    display: flex;
+    flex-wrap: wrap;
+    height: 28.3em;
+    align-items: flex-start;
+    align-content: start;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: .1em;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+    overflow: auto;
+}
+
+#addSect {
+    right: 3%;
+    bottom: 6%;
+    z-index: 2;
+}
+
+.sectionContainer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 1%;
+    width: fit-content;
+    height: fit-content;
+}
+
+.sectionContainer #sectionBG {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 1%;
+    width: 19em;
+    background: #C9E4CA;
+    color: #FFF;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: .2em 1em;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+    transition: .25s;
+    cursor: pointer;
+}
+
+.sectionContainer #sectionBG h2 {
+    margin: 0 6%;
+}
+
+.sectionContainer #sectionBG .section {
+    display: flex;
+    flex-direction: column;
+    padding: 1% 6%;
+    width: 100%;
+    height: 8em;
+    justify-content: center;
+    text-align: left;
+    background: #FFF;
+    color: #000;
+    border: none;
+    border-radius: .2em 1em;
+}
+
+.sectionContainer #sectionBG:hover {
+    scale: 1.03;
+    box-shadow: 0 5px 5px 5px rgba(0, 0, 0, .1);
+    z-index: 2;
+}
+
+/** ---------------------------------------------Estilo para la info de las secciones----------------------------------- */
+#sectInfoBG {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, .4);
+    z-index: 4;
+    animation: openBG .2s ease 0ms normal forwards;
+}
+
+#sectInfoBG #sectInfoContainer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: .5%;
+    width: 0%;
+    height: 98%;
+    background: #C9E4CA;
+    color: #FFF;
+    border: 1px solid #eeeeee;
+    border-radius: .4em;
+    overflow: hidden;
+    animation: openInfo .3s cubic-bezier(0.215, 0.610, 0.355, 1) 0s normal forwards;
+}
+
+#sectInfoBG #sectInfoContainer .sectHead {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+#sectInfoBG #sectInfoContainer .sectHead button {
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    top: 0;
+    right: 1%;
+    background: none;
+    color: #FFF;
+    font-size: 1.6em;
+    border: none;
+    cursor: pointer;
+    transition: .2s;
+}
+
+#sectInfoBG #sectInfoContainer .sectHead button:hover {
+    color: #f3f3f3;
+}
+
+#sectInfoBG #sectInfoContainer .info {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    border-radius: 0 0 .4em .4em;
+}
+
+#sectInfoBG #sectInfoContainer .info hr {
+    margin: .5%;
+    border: 1px solid #FFF;
+}
+
+#sectInfoBG #sectInfoContainer .info .sectionStdntsList {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 20em;
+    justify-content: start;
+    align-items: center;
+    background: #FFF;
+    border: 1px solid #C9E4CA;
+    overflow: hidden;
+}
+
+#sectInfoBG #sectInfoContainer .info .sectionStdntsList table {
+    width: 100%;
+    height: fit-content;
+    background: #C9E4CA;
+    color: #000;
+}
+
+#sectInfoBG #sectInfoContainer .info .sectionStdntsList table td,
+#sectInfoBG #sectInfoContainer .info .sectionStdntsList table th {
+    text-align: left;
+    padding: 0 .5%;
+    background: #FFF;
+}
+
+#sectInfoBG #sectInfoContainer .info .sectionStdntsList .titles {
+    position: absolute;
+    top: 0;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+    z-index: 2;
+}
+
+#sectInfoBG #sectInfoContainer .info .sectionStdntsList .titles .nie,
+#sectInfoBG #sectInfoContainer .info .sectionStdntsList .list .nie {
+    width: 10%;
+}
+
+#sectInfoBG #sectInfoContainer .info .sectionStdntsList .titles .nie {
+    width: 9.9%;
+}
+
+#sectInfoBG #sectInfoContainer .info .sectionStdntsList .titles .lastNames,
+#sectInfoBG #sectInfoContainer .info .sectionStdntsList .list .lastNames {
+    width: 20%;
+}
+
+#sectInfoBG #sectInfoContainer .info .sectionStdntsList .titles .lastNames {
+    width: 19.8%;
+}
+
+#sectInfoBG #sectInfoContainer .info .sectionStdntsList .titles .names,
+#sectInfoBG #sectInfoContainer .info .sectionStdntsList .list .names {
+    width: 20%;
+}
+
+#sectInfoBG #sectInfoContainer .info .sectionStdntsList .titles .names {
+    width: 19.8%;
+}
+
+#sectInfoBG #sectInfoContainer .info .sectionStdntsList .titles .birth,
+#sectInfoBG #sectInfoContainer .info .sectionStdntsList .list .birth {
+    width: 16%;
+}
+
+#sectInfoBG #sectInfoContainer .info .sectionStdntsList .titles .birth {
+    width: 15.8%;
+}
+
+#sectInfoBG #sectInfoContainer .info .sectionStdntsList .titles .sex,
+#sectInfoBG #sectInfoContainer .info .sectionStdntsList .list .sex {
+    width: 10%;
+}
+
+#sectInfoBG #sectInfoContainer .info .sectionStdntsList .titles .actions,
+#sectInfoBG #sectInfoContainer .info .sectionStdntsList .list .actions {
+    width: 8%;
+}
+
+#sectInfoBG #sectInfoContainer .info .sectionStdntsList .titles .actions {
+    width: 8.99%;
+}
+
+#sectInfoBG #sectInfoContainer .info .sectionStdntsList .list {
+    position: absolute;
+    top: 1.8em;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    z-index: 1;
+}
+
+#sectInfoBG #sectInfoContainer .info .sectionStdntsList .list table {
+    margin-bottom: 1.8em;
+}
+
+#sectInfoBG #sectInfoContainer .info .sectionStdntsList .list .actions {
+    padding: 0;
+    text-align: center;
+}
+
+#sectInfoBG #sectInfoContainer .info .sectionStdntsList .list .actions button {
+    margin: 0;
+    padding: 2% 15.3%;
+    background: none;
+    border: none;
+    color: #3B6064;
+    cursor: pointer;
+    transition: .2s;
+}
+
+#sectInfoBG #sectInfoContainer .info .sectionStdntsList .list .actions #deleteStdnt {
+    color: #d20000;
+}
+
+#sectInfoBG #sectInfoContainer .info .sectionStdntsList .list .actions button:hover {
+    background: #3B6064;
+    color: #FFF;
+}
+
+#sectInfoBG #sectInfoContainer .info .sectionStdntsList .list .actions #deleteStdnt:hover {
+    background: #d20000;
+    color: #FFF;
+}
+
+#sectInfoBG #sectInfoContainer .btns {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+
+#sectInfoBG #sectInfoContainer .btns #deleteSect {
+    position: absolute;
+    padding: .2% 1.5%;
+    background: none;
+    color: #d20000;
+    border: 1px solid #d20000;
+    border-radius: 1em;
+    transition: .2s;
+    cursor: pointer;
+}
+
+#sectInfoBG #sectInfoContainer .btns #deleteSect:hover {
+    background: #d20000;
+    color: #FFF;
+}
+
+/** ---------------------------------------------Estilo para la ventana de advertencia---------------------------------- */
+#warningBG {
+    display: flex;
+    position: fixed;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    background: rgba(0, 0, 0, .4);
+    z-index: 6;
+    transition: .15s;
+}
+
+#warningBG .warningContainer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 40%;
+    height: 30%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #FFF;
+    border-radius: .5em;
+}
+
+#warningBG .warningContainer p {
+    color: #d20000;
+}
+
+#warningBG .warningContainer .btns {
+    display: flex;
+    margin-top: 5%;
+    width: 60%;
+    height: fit-content;
+    bottom: 10%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#warningBG .warningContainer .btns button,
+#warningBG .warningContainer .btns a {
+    padding: 2% 10%;
+    background: none;
+    color: #000;
+    border: 1px solid #a0a0a0;
+    border-radius: 1em;
+    transition: .2s;
+    cursor: pointer;
+}
+
+#warningBG .warningContainer .btns button:hover,
+#warningBG .warningContainer .btns a:hover {
+    background: #a0a0a0;
+    color: #FFF;
+}
+
+#loadingBG {
+    display: flex;
+    position: fixed;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+    transition: all .2s;
+}
+
+#loadingBG #loadingContainer {
+    display: flex;
+    width: 10em;
+    height: 10em;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, .2);
+    border-radius: 1em;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, .1);
+}
+
+#loadingBG #loadingContainer .loading,
+#loadingBG #loadingContainer .loading2 {
+    display: block;
+    position: absolute;
+    width: 3em;
+    height: 3em;
+    justify-content: center;
+    align-items: center;
+    border: 10px solid;
+    border-radius: 100%;
+}
+
+#loadingBG #loadingContainer .loading {
+    border-color: #87BBA2 transparent #87BBA2 #87BBA2;
+    animation: rotate 1s 0s infinite forwards;
+    z-index: 2;
+}
+
+#loadingBG #loadingContainer .loading2 {
+    border: 5px solid;
+    border-color: #55828B;
+    z-index: 1;
+}
+
+@keyframes rotate {
+    from {
+        rotate: 0;
+    }
+
+    to {
+        rotate: 360deg;
+    }
+}
+
+#windowBG {
+    display: flex;
+    position: fixed;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, .4);
+    z-index: 3;
+}
+
+#windowBG #window {
+    display: flex;
+    width: 50%;
+    height: 40%;
+    justify-content: center;
+    align-items: center;
+    background: #FFF;
+    border-radius: 1em;
+    color: #87BBA2;
+}
+
+#windowBG #window .msg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#windowBG #window .msg a {
+    display: flex;
+    padding: .5% 5%;
+    color: #000;
+    border: 1px solid lightgray;
+    border-radius: 1em;
+    transition: .2s;
+}
+
+#windowBG #window .msg a:hover {
+    background: lightgray;
+    color: #FFF;
+}
+
+/** ---------------------------------------------Fromulario Estudiannte------------------------------------------------- */
+#newSectionContainer,
+#formContainerStdnt,
+#formContainerUser {
+    display: flex;
+    position: fixed;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, .4);
+    overflow: hidden;
+    z-index: 5;
+    animation: openBG .2s ease 10ms forwards;
+}
+
+#newSectionContainer form,
+#formContainerStdnt form,
+#formContainerUser form {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    height: 0;
+    border-radius: 15px;
+    background: #FFF;
+    border: 1px solid rgba(0, 0, 0, .2);
+    overflow: hidden;
+}
+
+#formContainerUser form {
+    animation: openFormUser .2s cubic-bezier(0.175, 0.885, 0.32, 1.275) .1s forwards;
+}
+
+#newSectionContainer form {
+    animation: openFormSect .2s cubic-bezier(0.175, 0.885, 0.32, 1.275) .1s forwards;
+}
+
+#formContainerStdnt form {
+    animation: openFormStdnt .4s cubic-bezier(0.075, 0.82, 0.165, 1) .1s forwards;
+}
+
+#newSectionContainer form,
+#formContainerUser form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#formContainerStdnt form .pic_container {
+    display: block;
+    position: relative;
+    margin: 0 0 2%;
+    height: fit-content;
+}
+
+#formContainerStdnt form .pic_container .stdn-pic {
+    display: flex;
+    position: relative;
+    margin: 0 auto;
+    width: 10em;
+    height: 10em;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid lightgray;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+#formContainerStdnt form .pic_container #loadedPicture {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    font-size: 8em;
+    color: #a0a0a0;
+}
+
+#formContainerStdnt form .pic_container .stdn-pic img {
+    width: 100%;
+}
+
+#formContainerStdnt form .pic_container input {
+    display: none;
+}
+
+#formContainerStdnt form .pic_container label {
+    display: flex;
+    position: absolute;
+    padding: 3%;
+    bottom: 5%;
+    right: 5%;
+    width: 4.5em;
+    justify-content: space-evenly;
+    align-items: center;
+    background: #55828B;
+    color: #FFF;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+#newSectionContainer form .combo,
+#formContainerStdnt form .combo,
+#formContainerStdnt form .comboDate,
+#formContainerStdnt form .comboSec,
+#formContainerUser form .combo,
+#formContainerUser form .comboDate,
+#formContainerUser form .comboSec {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+#formContainerStdnt form .comboSec,
+#formContainerUser form .comboSec {
+    width: 50%;
+}
+
+#newSectionContainer form .inputBox,
+#newSectionContainer form .comboBox,
+#formContainerStdnt form .inputBox,
+#formContainerStdnt form .combo .inputBox,
+#formContainerStdnt form .comboBox,
+#formContainerUser form .inputBox,
+#formContainerUser form .combo .inputBox,
+#formContainerUser form .comboBox {
+    display: flex;
+    position: relative;
+    margin: 0 1% 0%;
+    width: 100%;
+    align-items: center;
+}
+
+#formContainerStdnt form #nieBox {
+    margin-left: 2%;
+}
+
+#formContainerStdnt form .combo,
+#formContainerUser form .combo {
+    margin: 0 1%;
+}
+
+#newSectionContainer form .combo,
+#formContainerUser form .combo {
+    margin: 0 0 3%;
+}
+
+#newSectionContainer form>.inputBox,
+#formContainerStdnt form>.inputBox,
+#formContainerUser form>.inputBox,
+#newSectionContainer form>.comboBox,
+#formContainerStdnt form>.comboBox,
+#formContainerUser form>.comboBox {
+    margin: 0 0 3%;
+}
+
+#formContainerStdnt form .combo .comboBox,
+#formContainerUser form {
+    margin: 0;
+}
+
+#newSectionContainer form .inputBox {
+    width: 90%;
+}
+
+#formContainerUser form .inputBox,
+#formContainerUser form .combo .inputBox {
+    width: auto;
+}
+
+#formContainerUser form .comboBox {
+    margin: 0 auto 2%;
+    width: 35%;
+}
+
+#newSectionContainer form .combo .inputBox input,
+#newSectionContainer form .inputBox input,
+#newSectionContainer form .comboBox select,
+#formContainerStdnt form .inputBox input,
+#formContainerStdnt form .combo .inputBox input,
+#formContainerStdnt form .comboDate .inputBox input,
+#formContainerStdnt form .comboBox select,
+#formContainerUser form .inputBox input,
+#formContainerUser form .combo .inputBox input,
+#formContainerUser form .comboDate .inputBox input,
+#formContainerUser form .comboBox select {
+    display: block;
+    position: relative;
+    padding: 0 10px;
+    width: 100%;
+    border: 2px solid lightgray;
+    border-radius: 15px;
+    outline: none;
+    transition: .2s;
+}
+
+#formContainerStdnt form .comboDate .comboBox,
+#formContainerStdnt form .comboDate .inputBox,
+#formContainerUser form .comboDate .comboBox,
+#formContainerUser form .comboDate .inputBox {
+    display: flex;
+    position: relative;
+}
+
+#formContainerStdnt form .comboDate {
+    display: flex;
+    margin: 3% 0 0;
+    justify-content: center;
+    align-items: center;
+}
+
+#formContainerStdnt form .comboDate #monthBox {
+    width: 30%;
+}
+
+#formContainerStdnt form .comboDate #dayBox,
+#formContainerStdnt form .comboDate .inputBox {
+    width: 15%;
+}
+
+#formContainerStdnt form .comboDate #dayBox select,
+#formContainerStdnt form .comboDate .inputBox input {
+    text-align: center;
+}
+
+#newSectionContainer form .inputBox label,
+#newSectionContainer form .comboBox label,
+#formContainerStdnt form .inputBox label,
+#formContainerStdnt form .comboBox label,
+#formContainerUser form .inputBox label,
+#formContainerUser form .comboBox label {
+    display: block;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    left: 12px;
+    bottom: 5px;
+    cursor: text;
+    transition: .2s;
+}
+
+#newSectionContainer form .comboBox select,
+#newSectionContainer form .comboBox label,
+#formContainerStdnt form .comboBox select,
+#formContainerStdnt form .comboBox label,
+#formContainerUser form .comboBox select,
+#formContainerUser form .comboBox label {
+    cursor: pointer;
+}
+
+#formContainerStdnt form .inputBox input {
+    width: 40%;
+}
+
+
+#newSectionContainer form .inputBox input:hover,
+#newSectionContainer form .inputBox input:focus,
+#newSectionContainer form .inputBox input:valid,
+#newSectionContainer form .comboBox select:hover,
+#newSectionContainer form .comboBox select:focus,
+#newSectionContainer form .comboBox select:valid,
+#formContainerStdnt form .inputBox input:hover,
+#formContainerStdnt form .inputBox input:focus,
+#formContainerStdnt form .inputBox input:valid,
+#formContainerStdnt form .comboBox select:hover,
+#formContainerStdnt form .comboBox select:focus,
+#formContainerStdnt form .comboBox select:valid,
+#formContainerUser form .inputBox input:hover,
+#formContainerUser form .inputBox input:focus,
+#formContainerUser form .inputBox input:valid,
+#formContainerUser form .comboBox select:hover,
+#formContainerUser form .comboBox select:focus,
+#formContainerUser form .comboBox select:valid {
+    border-color: #3B6064;
+}
+
+#newSectionContainer form .inputBox input:focus~label,
+#newSectionContainer form .inputBox input:valid~label,
+#newSectionContainer form .comboBox select:focus~label,
+#newSectionContainer form .comboBox select:valid~label,
+#formContainerStdnt form .inputBox input:focus~label,
+#formContainerStdnt form .inputBox input:valid~label,
+#formContainerStdnt form .comboBox select:focus~label,
+#formContainerStdnt form .comboBox select:valid~label,
+#formContainerUser form .inputBox input:focus~label,
+#formContainerUser form .inputBox input:valid~label,
+#formContainerUser form .comboBox select:focus~label,
+#formContainerUser form .comboBox select:valid~label {
+    transform: translate(1px, -23px);
+    font-size: 11pt;
+    background: #FFF;
+    color: #3B6064;
+}
+
+#formContainerStdnt form fieldset {
+    display: flex;
+    position: relative;
+    margin: 0 auto 2.5%;
+    padding: 0 3%;
+    width: 70%;
+    height: 4em;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    border: 2px solid lightgray;
+    border-radius: 20px;
+}
+
+#formContainerStdnt form fieldset .radioBox {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin: 1%;
+    width: 100%;
+}
+
+#formContainerStdnt form fieldset .radioBox label {
+    cursor: pointer;
+}
+
+#formContainerStdnt form fieldset .radioBox .fill {
+    display: flex;
+    margin-right: 1%;
+    padding: 1%;
+    width: 1.2em;
+    height: 1.2em;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid gray;
+    border-radius: 2em;
+    cursor: pointer;
+    transition: .2s;
+}
+
+#formContainerStdnt form fieldset .radioBox .fill span {
+    display: block;
+    opacity: 0;
+    width: .8em;
+    height: .8em;
+    background: #87BBA2;
+    border-radius: 2em;
+    transition: .2s;
+}
+
+#formContainerStdnt form fieldset .radioBox input {
+    display: none;
+}
+
+#formContainerStdnt form fieldset .radioBox input:checked~.fill span {
+    opacity: 1;
+}
+
+#newSectionContainer form .buttons,
+#formContainerStdnt form .buttons,
+#formContainerUser form .buttons {
+    display: flex;
+    margin: 0;
+    width: 100%;
+    justify-content: end;
+    align-items: center;
+}
+
+#newSectionContainer form .buttons button,
+#formContainerStdnt form .buttons button,
+#formContainerUser form .buttons button {
+    display: flex;
+    margin: 0 1%;
+    padding: 0.2%;
+    width: 25%;
+    background: none;
+    border: 2px solid lightgray;
+    border-radius: 10em;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: .2s;
+}
+
+#newSectionContainer form .buttons button[type="submit"]:hover,
+#formContainerStdnt form .buttons button[type="submit"]:hover,
+#formContainerUser form .buttons button[type="submit"]:hover {
+    border-color: #55828B;
+}
+
+#newSectionContainer form .buttons button[type="reset"]:hover,
+#formContainerStdnt form .buttons button[type="reset"]:hover,
+#formContainerUser form .buttons button[type="reset"]:hover {
+    border-color: #d20000;
+}
+
+/** ---------------------------------------------Estilo para los usuarios----------------------------------------------  */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    height: 430px;
+    justify-content: center;
+    margin: 0;
+}
+
+#users {
+    display: flex;
+    position: relative;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    margin: 2%;
+    width: 25%;
+    height: 15em;
+    border: 2px solid lightgray;
+    background: #FFF;
+    color: #000;
+    border-radius: .5em;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.card input {
+    position: absolute;
+    width: 5%;
+    top: 0;
+    left: 0;
+    text-align: center;
+}
+
+.card .icon {
+    color: #3B6064;
+    font-size: 5em;
+}
+
+.card:hover {
+    scale: 1.03;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, .1);
+}
+
+.card h3 {
+    color: #87BBA2;
+}
+
+/** ---------------------------------------------Estilo del pie de página----------------------------------------------  */
+footer {
+    margin: 0;
+    padding: 1.1%;
+    height: 20vh;
+    background: #364958;
+    color: #FFF;
+    font-size: 11pt;
+    z-index: 1;
+}
+
+footer a {
+    color: #FFF;
+    transition: .2s;
+}
+
+footer a:hover {
+    color: rgba(80, 200, 255, 1);
+    text-decoration: underline;
+}
+
+/* *---------------------------------------------ANIMACIONES------------------------------------------------------------ */
+/* Scanner */
+@keyframes scan {
+    from {
+        top: 0;
+    }
+
+    to {
+        top: 100%;
+    }
+}
+
+/* Información de la sección */
+@keyframes openBG {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes openInfo {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 95%;
+    }
+}
+
+/* Formulario de agregar sección */
+@keyframes openFormSect {
+    from {
+        height: 0;
+    }
+
+    to {
+        padding: 1%;
+        height: 32%;
+    }
+}
+
+/* Formulario de agregar estudiante */
+@keyframes openFormStdnt {
+    from {
+        height: 0;
+    }
+
+    to {
+        padding: 1%;
+        height: 98%;
+    }
+}
+
+
+/* Formulario de agregar usuario */
+@keyframes openFormUser {
+    from {
+        height: 0;
+    }
+
+    to {
+        padding: 1%;
+        height: 50%;
+    }
+}
