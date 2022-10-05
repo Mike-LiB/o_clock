@@ -4,12 +4,16 @@
 Se le quita el margen y el relleno a todos los elementos haciendo 
 uso del asterisco y se agrega una tipografía general.
  */
-* {
+*:not(br) {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Cairo', sans-serif;
     font-size: 100%;
+}
+
+br {
+    margin: 0 0 30px 0;
 }
 
 html {
@@ -41,7 +45,7 @@ se le agrega un color de fondo y todo se posiciona en el centro.
 #lBody {
     display: flex;
     flex-direction: column;
-    height: 33.3em;
+    height: 100%;
     justify-content: center;
     background: #87BBA2;
     color: #FFF;
@@ -204,7 +208,7 @@ Lo mismo ocurre con los label.
 #lBody form .inputBox input:valid~label {
     color: #55828B;
     background-color: #87BBA2;
-    transform: translate(4px, -26px);
+    transform: translate(0, -22px);
     font-size: 12pt;
 }
 
@@ -327,7 +331,6 @@ La animación del botón es un cambio de color del borde y el texto.
 
 .user .username ul {
     display: flex;
-    position: absolute;
     width: 7.5em;
     height: 0;
     background: none;
@@ -574,6 +577,7 @@ header nav {
     align-items: center;
     justify-content: space-evenly;
     height: fit-content;
+    font-size: 1.3em;
 }
 
 header nav .link {
@@ -747,10 +751,10 @@ header nav .link a:hover~span {
 #sectInfoBG #sectInfoContainer .btns button[id="addStudent"],
 .usersList button,
 .sections>button {
-    position: absolute;
+    position: sticky;
     width: 2.5em;
     height: 2.5em;
-    right: 1%;
+    left: 96%;
     bottom: 2%;
     background: #FFF;
     color: #87BBA2;
@@ -1137,7 +1141,8 @@ header nav .link a:hover~span {
 .sections {
     display: flex;
     flex-wrap: wrap;
-    height: 28.3em;
+    position: relative;
+    height: 37em;
     align-items: flex-start;
     align-content: start;
     border: 1px solid rgba(0, 0, 0, .2);
@@ -1146,17 +1151,11 @@ header nav .link a:hover~span {
     overflow: auto;
 }
 
-#addSect {
-    right: 3%;
-    bottom: 6%;
-    z-index: 2;
-}
-
 .sectionContainer {
     display: flex;
     flex-direction: column;
     position: relative;
-    margin: 1%;
+    margin: .8%;
     width: fit-content;
     height: fit-content;
 }
@@ -1178,6 +1177,7 @@ header nav .link a:hover~span {
 
 .sectionContainer #sectionBG h2 {
     margin: 0 6%;
+    font-size: 18pt;
 }
 
 .sectionContainer #sectionBG .section {
@@ -1237,6 +1237,10 @@ header nav .link a:hover~span {
     position: relative;
 }
 
+#sectInfoBG #sectInfoContainer .sectHead h1 {
+    font-size: 26pt;
+}
+
 #sectInfoBG #sectInfoContainer .sectHead button {
     position: absolute;
     justify-content: center;
@@ -1246,7 +1250,7 @@ header nav .link a:hover~span {
     right: 1%;
     background: none;
     color: #FFF;
-    font-size: 1.6em;
+    font-size: 2.2em;
     border: none;
     cursor: pointer;
     transition: .2s;
@@ -1261,6 +1265,7 @@ header nav .link a:hover~span {
     display: flex;
     flex-direction: column;
     padding: 0;
+    font-size: 1.1em;
     border-radius: 0 0 .4em .4em;
 }
 
@@ -1273,7 +1278,7 @@ header nav .link a:hover~span {
     display: flex;
     flex-direction: column;
     position: relative;
-    height: 20em;
+    height: 24.5em;
     justify-content: start;
     align-items: center;
     background: #FFF;
@@ -1370,7 +1375,7 @@ header nav .link a:hover~span {
     text-align: center;
 }
 
-#sectInfoBG #sectInfoContainer .info .sectionStdntsList .list .actions button {
+#sectInfoBG #sectInfoContainer .info .sectionStdntsList .list .actions a {
     margin: 0;
     padding: 2% 15.3%;
     background: none;
@@ -1384,7 +1389,7 @@ header nav .link a:hover~span {
     color: #d20000;
 }
 
-#sectInfoBG #sectInfoContainer .info .sectionStdntsList .list .actions button:hover {
+#sectInfoBG #sectInfoContainer .info .sectionStdntsList .list .actions a:hover {
     background: #3B6064;
     color: #FFF;
 }
@@ -1603,9 +1608,13 @@ header nav .link a:hover~span {
 #formContainerStdnt form,
 #formContainerUser form {
     position: absolute;
+    display: flex;
+    flex-direction: column;
     margin: 0;
     padding: 0;
     height: 0;
+    justify-content: center;
+    align-items: center;
     border-radius: 15px;
     background: #FFF;
     border: 1px solid rgba(0, 0, 0, .2);
@@ -1663,6 +1672,7 @@ header nav .link a:hover~span {
 
 #formContainerStdnt form .pic_container .stdn-pic img {
     width: 100%;
+    scale: 1.5;
 }
 
 #formContainerStdnt form .pic_container input {
@@ -1694,6 +1704,7 @@ header nav .link a:hover~span {
 #formContainerUser form .comboSec {
     display: flex;
     position: relative;
+    width: 100%;
     justify-content: center;
     align-items: center;
     align-content: center;
@@ -1720,7 +1731,7 @@ header nav .link a:hover~span {
 }
 
 #formContainerStdnt form #nieBox {
-    margin-left: 2%;
+    margin: 2% 0 5% 2%;
 }
 
 #formContainerStdnt form .combo,
@@ -1739,7 +1750,11 @@ header nav .link a:hover~span {
 #newSectionContainer form>.comboBox,
 #formContainerStdnt form>.comboBox,
 #formContainerUser form>.comboBox {
-    margin: 0 0 3%;
+    margin: 0 0 5%;
+}
+
+#esp {
+    margin: 1% 0 0 0;
 }
 
 #formContainerStdnt form .combo .comboBox,
@@ -1774,7 +1789,7 @@ header nav .link a:hover~span {
 #formContainerUser form .comboBox select {
     display: block;
     position: relative;
-    padding: 0 10px;
+    padding: 2px 10px;
     width: 100%;
     border: 2px solid lightgray;
     border-radius: 15px;
@@ -1850,9 +1865,11 @@ header nav .link a:hover~span {
 #formContainerStdnt form .inputBox input:hover,
 #formContainerStdnt form .inputBox input:focus,
 #formContainerStdnt form .inputBox input:valid,
+#formContainerStdnt form .inputBox input:disabled,
 #formContainerStdnt form .comboBox select:hover,
 #formContainerStdnt form .comboBox select:focus,
 #formContainerStdnt form .comboBox select:valid,
+#formContainerStdnt form .comboBox select:disabled,
 #formContainerUser form .inputBox input:hover,
 #formContainerUser form .inputBox input:focus,
 #formContainerUser form .inputBox input:valid,
@@ -1862,14 +1879,22 @@ header nav .link a:hover~span {
     border-color: #3B6064;
 }
 
+#formContainerStdnt form .inputBox input:disabled,
+#formContainerStdnt form .comboBox select:disabled {
+    background: #FFF;
+}
+
+
 #newSectionContainer form .inputBox input:focus~label,
 #newSectionContainer form .inputBox input:valid~label,
 #newSectionContainer form .comboBox select:focus~label,
 #newSectionContainer form .comboBox select:valid~label,
 #formContainerStdnt form .inputBox input:focus~label,
 #formContainerStdnt form .inputBox input:valid~label,
+#formContainerStdnt form .inputBox input:disabled~label,
 #formContainerStdnt form .comboBox select:focus~label,
 #formContainerStdnt form .comboBox select:valid~label,
+#formContainerStdnt form .comboBox select:disabled~label,
 #formContainerUser form .inputBox input:focus~label,
 #formContainerUser form .inputBox input:valid~label,
 #formContainerUser form .comboBox select:focus~label,
@@ -1951,12 +1976,14 @@ header nav .link a:hover~span {
 
 #newSectionContainer form .buttons button,
 #formContainerStdnt form .buttons button,
+#formContainerStdnt form .buttons a,
 #formContainerUser form .buttons button {
     display: flex;
     margin: 0 1%;
     padding: 0.2%;
     width: 25%;
     background: none;
+    color: #000;
     border: 2px solid lightgray;
     border-radius: 10em;
     justify-content: center;
@@ -1973,6 +2000,7 @@ header nav .link a:hover~span {
 
 #newSectionContainer form .buttons button[type="reset"]:hover,
 #formContainerStdnt form .buttons button[type="reset"]:hover,
+#formContainerStdnt form .buttons a:hover,
 #formContainerUser form .buttons button[type="reset"]:hover {
     border-color: #d20000;
 }
@@ -2108,7 +2136,7 @@ footer a:hover {
 
     to {
         padding: 1%;
-        height: 98%;
+        height: 85%;
     }
 }
 
@@ -2124,3 +2152,5 @@ footer a:hover {
         height: 50%;
     }
 }
+
+@media (width: 749px) {}

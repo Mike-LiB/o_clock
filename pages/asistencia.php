@@ -18,14 +18,7 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--  -->
-    <link rel="stylesheet" href="../css/main.css">
-    <!--  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500&display=swap" rel="stylesheet">
+    <?php require '../blocks/metadata.php'; ?>
     <title>Estudiantes</title>
 </head>
 
@@ -179,7 +172,7 @@
                                 <span>
                                     <i class="fa-solid fa-check"></i>
                                 </span>
-                                <?php echo $data["year"] . "&deg; " . "&OpenCurlyDoubleQuote;"
+                                <?php echo $data["anho"] . "&deg; " . "&OpenCurlyDoubleQuote;"
                                     . $data["seccion"] . "&OpenCurlyDoubleQuote;"; ?>
                             </label>
                         </a>
@@ -206,7 +199,7 @@
             //variable para total asistidos de ese dia
             $asistieron = mysqli_num_rows($consultaTSecc);
             //operacion
-            $inasistencia = $asistieron - $total;
+            $inasistencia = abs($asistieron - $total);
 
             ?>
             <div class="graficsContainer">

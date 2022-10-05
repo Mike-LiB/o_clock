@@ -131,7 +131,7 @@ $sql = mysqli_query($enlace, "SELECT * FROM seccion WHERE idSeccion = '$idSeccio
 
             <?php
             }
-            // $enlace->close();
+            $enlace->close();
             ?>
 
             <button id="addSect" type="button" title="Agregar nueva sección">

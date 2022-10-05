@@ -21,7 +21,7 @@ while ($encabezado = mysqli_fetch_array($consultEncabezado, MYSQLI_ASSOC)) {
             <h1><?php echo $year . "&deg; " . "&OpenCurlyDoubleQuote;" .
                     $nombre . "&OpenCurlyDoubleQuote;"; ?></h1>
 
-            <button id="closeInfo">
+            <button id="closeInfo" type="button" title="Cerrar información">
                 <i class="fa-solid fa-close"></i>
             </button>
         </div>
@@ -68,13 +68,9 @@ while ($encabezado = mysqli_fetch_array($consultEncabezado, MYSQLI_ASSOC)) {
                                         <?php echo $datos['sexo'] ?>
                                     </td>
                                     <td class="actions">
-                                        <button id="editStdnt">
-                                            <a href="../blocks/editarStdnt.php?nie=<?php echo $datos['nie'] ?>"><i class="fa-solid fa-pen"></i></a>
-                                        </button>
+                                        <a id="editStdnt" href="../blocks/editarStdnt.php?nie=<?php echo $datos['nie'] ?>&idSeccion=<?php echo $sectInfo ?> "><i class="fa-solid fa-pen"></i></a>
 
-                                        <button id="deleteStdnt">
-                                            <a href="../php/deleteStdnt.php?nie=<?php echo $datos['nie'] ?>"><i class="fa-solid fa-trash"></i></a>
-                                        </button>
+                                        <a id="deleteStdnt" href="../php/deleteStdnt.php?nie=<?php echo $datos['nie'] ?>"><i class="fa-solid fa-trash"></i></a>
                                     </td>
                                 </tr>
                             <?php

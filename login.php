@@ -21,7 +21,7 @@ if (!empty($_POST['login'])) {
                 header('location: pages/home.php');
                 echo "admin";
             } else if ($tipo == "CA") {
-                header('location: pages/home.php');
+                header('location: pages/controlAsistencia.php');
             }
         }
     } else {

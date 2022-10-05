@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" style="height: 100%;">
 
 <head>
     <meta charset="UTF-8">
@@ -12,54 +12,50 @@
 </head>
 
 <body id="lBody">
-    <div>
-        <div id="logo">
-            <img src="assets/logo.png" alt="logo.png">
-        </div>
-        
-        <form method="post">
-            <div id="userType">
-                <div class="user_optBox">
-                    <input type="radio" name="user" id="admin" class="user">
-                    <label for="admin">Admin</label>
-                    <span></span>
-                </div>
-                
-                <div class="user_optBox">
-                    <input type="radio" name="user" id="dir" class="user">
-                    <label for="dir">Dirección</label>
-                    <span></span>
-                </div>
-        
-                <div class="user_optBox">
-                    <input type="radio" name="user" id="doc" class="user">
-                    <label for="doc">Docente</label>
-                    <span></span>
-                </div>
-        
-            </div>
-            <br>
-        
-            <div class="inputBox">
-                <input type="email" name="user" id="user"
-                title="Ingrese el nombre de usuario que se le ha asignado" required>
-                <label for="user">Usuario</label>
-            </div>
-            <br>
-        
-            <div class="inputBox">
-                <input type="password" name="ps" id="ps" 
-                title="La contraseña debe tener ocho caracteres mínimo" required>
-                <label for="ps">Contraseña</label>
-            </div>
-            <br>
-        
-            <a href="#">¿Olvidó su contraseña?</a>
-            <br>
-        
-            <input type="submit" value="Ingresar" name="login">
-        </form>
+    <div id="logo">
+        <img src="assets/logo.png" alt="logo.png">
     </div>
+
+    <form method="post">
+        <div id="userType">
+            <div class="user_optBox">
+                <input type="radio" name="user" id="admin" class="user">
+                <label for="admin">Admin</label>
+                <span></span>
+            </div>
+
+            <div class="user_optBox">
+                <input type="radio" name="user" id="dir" class="user">
+                <label for="dir">Dirección</label>
+                <span></span>
+            </div>
+
+            <div class="user_optBox">
+                <input type="radio" name="user" id="doc" class="user">
+                <label for="doc">Docente</label>
+                <span></span>
+            </div>
+
+        </div>
+        <br>
+
+        <div class="inputBox">
+            <input type="email" name="user" id="user" title="Ingrese el nombre de usuario que se le ha asignado" required>
+            <label for="user">Usuario</label>
+        </div>
+        <br>
+
+        <div class="inputBox">
+            <input type="password" name="ps" id="ps" title="La contraseña debe tener ocho caracteres mínimo" required>
+            <label for="ps">Contraseña</label>
+        </div>
+        <br>
+
+        <a href="#">¿Olvidó su contraseña?</a>
+        <br>
+
+        <input type="submit" value="Ingresar" name="login">
+    </form>
 </body>
 
 </html>
